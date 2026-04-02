@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu de Nim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow">HTML + JavaScript</p>
+      <h1>Jeu de Nim</h1>
+      <p id="introText" class="intro"></p>
+    </section>
+
+    <section class="panel panel-status">
+      <div>
+        <p class="label">Tour actuel</p>
+        <p id="turnLabel" class="value">Joueur 1</p>
+      </div>
+      <div>
+        <p class="label">État</p>
+        <p id="message" class="value">Choisis un tas puis retire des allumettes.</p>
+      </div>
+      <button id="restartButton" class="button secondary" type="button">Nouvelle partie</button>
+    </section>
+
+    <section class="panel controls">
+      <div class="control-block">
+        <label class="label" for="modeSelect">Mode</label>
+        <select id="modeSelect">
+          <option value="line16">16 allumettes</option>
+          <option value="classic">Nim classique</option>
+          <option value="marienbad">Marienbad</option>
+        </select>
+        <p id="modeHelper" class="helper"></p>
+      </div>
+      <div class="control-block">
+        <label class="label" for="opponentSelect">Partie</label>
+        <select id="opponentSelect">
+          <option value="computer">Contre ordinateur</option>
+          <option value="human">Humain vs humain</option>
+        </select>
+        <p id="opponentHelper" class="helper">Fais jouer Joueur 1 contre l'ordinateur ou un second humain.</p>
+      </div>
+      <div class="control-block">
+        <label class="label" for="pileSelect">Tas sélectionné</label>
+        <select id="pileSelect"></select>
+      </div>
+      <div class="control-block">
+        <label class="label" for="removeCount">Nombre à retirer</label>
+        <input id="removeCount" type="number" min="1" value="1">
+        <p class="helper">Tu peux aussi cliquer directement sur les allumettes.</p>
+      </div>
+      <button id="playButton" class="button primary" type="button">Jouer</button>
+    </section>
+
+    <section class="board panel">
+      <div class="board-header">
+        <h2>Les tas</h2>
+        <p id="hint">Clique sur un tas ou directement sur les allumettes.</p>
+      </div>
+      <div id="piles" class="piles" aria-live="polite"></div>
+    </section>
+
+    <section class="panel rules">
+      <h2>Règle du jeu</h2>
+      <p>
+        Ce jeu très simple se joue à deux. On dispose des paquets d'allumettes sur une table.
+        Chaque joueur, à tour de rôle, prend le nombre d'allumettes qu'il veut, au moins une,
+        dans un des paquets.
+      </p>
+      <p id="rulesOutcome"></p>
+      <p>
+        Ce jeu est aussi connu sous le nom « Fan Tan » ou « jeu des allumettes ».
+        Le film <em>L'année dernière à Marienbad</em> l'a rendu très à la mode dans les années soixante.
+      </p>
+      <p id="rulesVariant" class="rule-highlight"></p>
+      <p id="rulesStrategy" class="rule-strategy"></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
